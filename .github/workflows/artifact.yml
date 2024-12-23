@@ -18,8 +18,9 @@ jobs:
       with:
         name: hello-artifact
         path: hello.txt
-        
+
   download:
+    needs: build    # enforce download job to run after build job, not in a parallel process
     runs-on: ubuntu-latest
     steps:
       - name: download artifact
